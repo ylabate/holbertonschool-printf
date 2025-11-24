@@ -9,8 +9,8 @@
  * Return: 0 on success.
  */
 
-int print(void *buf, size_t length)
+int print(const char *buf)
 {
-	write(1, buf, length);
+	write(1, buf, 1);
 	return (0);
 }

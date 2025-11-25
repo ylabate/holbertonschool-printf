@@ -37,8 +37,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[format_index] == '\0')
 					return (-1);
-				print(format[format_index - 1]);
-				print(format[format_index]);
+				write(1, &format[format_index - 1], 2);
 				char_printed += 2;
 				format_index++;
 				continue;

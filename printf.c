@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				print(format[format_index - 1]);
 				print(format[format_index]);
-				char_printed += 1;
+				char_printed += 2;
 				format_index++;
 				continue;
 			}

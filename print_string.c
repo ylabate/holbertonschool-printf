@@ -8,7 +8,10 @@ int print_string(va_list list)
 {
 	char *string = va_arg(list, char *);
 	int len;
+	char *nullcase[] = {"(null)"};
 
+	if (string == NULL)
+		string = *nullcase;
 	len = strlen(string);
 	write(1, string, len);
 

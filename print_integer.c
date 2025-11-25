@@ -3,31 +3,34 @@
 int print_integer(va_list list)
 {
 	int integer = va_arg(list, int);
-	int len = 0, rev_len;
+	int end = 0, rev_end, len = 0;
 	int buffer_index = 0;
 	char buffer[12];
 
 	if (integer < 0)
 	{
 		write(1, "-", 1);
+		len++;
 		integer = -integer;
 	}
 	if (integer == 0)
 	{
 		buffer[0] = '0';
+		end++;
 		len++;
 	}
 	while (integer > 0)
 	{
 		buffer[buffer_index++] = ((integer % 10) + '0');
 		integer = (integer / 10);
-		len++;
+		end++;
 	}
-	rev_len = len - 1;
-	while (rev_len >= 0)
+	rev_end = end - 1;
+	while (rev_end >= 0)
 	{
-		write(1, &buffer[rev_len], 1);
-		rev_len--;
+		write(1, &buffer[rev_end], 1);
+		rev_end--;
+		len++;
 	}
 	return (len);
 }

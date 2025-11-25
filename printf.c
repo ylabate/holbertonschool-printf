@@ -46,7 +46,6 @@ int _printf(const char *format, ...)
 		format_index++;
 	}
 
-	print('\0');
 	va_end(args);
 	return (char_printed);
 }

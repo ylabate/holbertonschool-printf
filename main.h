@@ -18,11 +18,11 @@ int _printf(const char *format, ...);
 typedef struct field_converter
 {
 	char base;
-	void (*field)(va_list);
+	int (*field)(va_list);
 } field_t;
 
-void print_string(va_list list);
-void print_char(va_list list);
-void print_percent(va_list list);
+int print_string(va_list list);
+int print_char(va_list list);
+int print_percent(va_list list);
 
 #endif

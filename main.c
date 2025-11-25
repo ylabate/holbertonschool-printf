@@ -11,7 +11,7 @@ int main(void)
 {
 	int a;
 
-	a =_printf("%c", 'S');
-	printf("%d", a);
+	a = _printf("aaaaa%c, %s, %%\n", 'S', "string");
+	printf("%d\n", a);
 	return (0);
 }

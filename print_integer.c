@@ -9,7 +9,7 @@ int print_integer(va_list list)
 
 	if (integer < 0)
 	{
-		buffer[buffer_index++] = '-';
+		write(1, "-", 1);
 		integer = -integer;
 		len++;
 	}

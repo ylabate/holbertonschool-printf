@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-int print(const char *buf);
+int print(const char buf);
 int _printf(const char *format, ...);
 
 /**

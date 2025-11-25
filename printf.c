@@ -30,12 +30,17 @@ int _printf(const char *format, ...)
 			while (fields[field_index].base != NULL && *fields[field_index].base != format[format_index])
 				field_index++;
 			if (fields[field_index].field == NULL)
-				exit(0);
+			{
+				print('%');
+				print(format[format_index]);
+				char_printed += 2;
+				continue;
+			}
 			char_printed += fields[field_index].field(args);
 		}
 		else
 		{
-			print(&format[format_index]);
+			print(format[format_index]);
 			char_printed++;
 		}
 		format_index++;

@@ -17,7 +17,7 @@ int _printf(const char *format, ...);
  */
 typedef struct field_converter
 {
-	char base;
+	char *base;
 	int (*field)(va_list);
 } field_t;
 

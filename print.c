@@ -9,8 +9,8 @@
  * Return: 0 on success.
  */
 
-int print(const char *buf)
+int print(const char buf)
 {
-	write(1, buf, 1);
+	write(1, &buf, 1);
 	return (0);
 }

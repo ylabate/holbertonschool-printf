@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			if (fields[field_index].field == NULL)
 			{
 				if (format[format_index] == '\0')
-					break;
+					return (-1);
 				print(format[format_index - 1]);
 				print(format[format_index]);
 				char_printed += 1;

@@ -11,7 +11,6 @@ int main(void)
 {
 	int a;
 
-
 	a = _printf(NULL);
 	printf("%d\n", a);
 	return (0);

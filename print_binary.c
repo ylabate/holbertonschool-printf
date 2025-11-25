@@ -1,14 +1,14 @@
 #include "main.h"
 
-int print_integer(va_list list)
+int print_binary(va_list list)
 {
 	int integer = va_arg(list, int);
-	long signed int integer_long;
+	long signed int integer_pos;
 	int end = 0, rev_end, len = 0;
 	int buffer_index = 0;
-	char buffer[12];
+	char buffer[32];
 
-	integer_long = integer;
+	integer_pos = integer;
 	if (integer == 0)
 	{
 		buffer[0] = '0';
@@ -18,12 +18,12 @@ int print_integer(va_list list)
 	{
 		write(1, "-", 1);
 		len++;
-		integer_long = -integer_long;
+		integer_pos = -integer_pos;
 	}
-	while (integer_long > 0 && buffer_index < 32)
+	while (integer_pos > 0)
 	{
-		buffer[buffer_index++] = ((integer_long % 10) + '0');
-		integer_long = (integer_long / 10);
+		buffer[buffer_index++] = ((integer_pos % 2) + '0');
+		integer_pos = (integer_pos / 2);
 		end++;
 	}
 	rev_end = end - 1;

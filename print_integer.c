@@ -11,7 +11,6 @@ int print_integer(va_list list)
 	{
 		write(1, "-", 1);
 		integer = -integer;
-		len++;
 	}
 	if (integer == 0)
 	{

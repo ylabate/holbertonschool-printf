@@ -11,6 +11,6 @@ int main(void)
 {
 	
 
-	_printf("%d", 200);
+	_printf("%d", 2-10);
 	return (0);
 }

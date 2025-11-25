@@ -4,9 +4,10 @@
  * print_char - Prints a character to the output
  * @list: va_list containing the character to print
  */
-void print_char(va_list list)
+int print_char(va_list list)
 {
 	char c = va_arg(list, int);
 
 	write(1, &c, 1);
+	return (1);
 }

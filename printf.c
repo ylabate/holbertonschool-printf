@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int format_index = 0, field_index;
+	int format_index = 0, field_index, char_printed = 0;
 	field_t fields[] = {
 	{'s', print_string},
 	{'c', print_char},
@@ -30,14 +30,18 @@ int _printf(const char *format, ...)
 			while (fields[field_index].base != format[format_index] && fields[field_index].base != '\0')
 				field_index++;
 			if (fields[field_index].field == NULL)
-				exit (1);
-			fields[field_index].field(args);
+				exit(0);
+			char_printed += fields[field_index].field(args);
 		}
 		else
+		{
 			print(&format[format_index]);
+			char_printed++;
+		}
 		format_index++;
 	}
 
+
 	va_end(args);
-	return (format_index - 1);
+	return (char_printed);
 }

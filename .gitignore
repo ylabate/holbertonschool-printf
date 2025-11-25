@@ -55,4 +55,4 @@ dkms.conf
 *.dwo
 
 *vscode*
-*main.c
+main.c

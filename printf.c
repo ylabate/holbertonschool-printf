@@ -35,9 +35,12 @@ int _printf(const char *format, ...)
 				field_index++;
 			if (fields[field_index].field == NULL)
 			{
-				print('%');
+				if (format[format_index] == '\0')
+					break;
+				print(format[format_index - 1]);
 				print(format[format_index]);
-				char_printed += 2;
+				char_printed += 1;
+				format_index++;
 				continue;
 			}
 			char_printed += fields[field_index].field(args);

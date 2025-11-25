@@ -11,7 +11,7 @@ int main(void)
 {
 	int a;
 
-	a = _printf("%d", 2-10);
+	a = _printf("%d", INT_MIN);
 	_printf("\n%d", a);
 	return (0);
 }

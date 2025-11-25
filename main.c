@@ -11,7 +11,7 @@ int main(void)
 {
 	int a;
 
-	a = _printf(NULL);
+	a = _printf("Let's print a simple sentence.\n");
 	printf("%d\n", a);
 	return (0);
 }

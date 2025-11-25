@@ -24,7 +24,7 @@ int print_integer(va_list list)
 		integer = (integer / 10);
 		len++;
 	}
-	rev_len = len;
+	rev_len = len - 1;
 	while (rev_len >= 0)
 	{
 		write(1, &buffer[rev_len], 1);

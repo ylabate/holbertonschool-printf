@@ -11,23 +11,27 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int format_index = 0, field_index, char_printed = 0;
+	int format_index = 0, field_index, char_printed = -1;
 	field_t fields[] = {
 	{"s", print_string},
 	{"c", print_char},
 	{"%", print_percent},
+	{"i", print_integer},
+	{"d", print_integer},
 	{NULL, NULL}
 	};
 
 	va_start(args, format);
-
+	if (format != NULL)
+		char_printed = 0;
 	while (format != NULL && format[format_index] != '\0')
 	{
 		if (format[format_index] == '%')
 		{
 			format_index++;
 			field_index = 0;
-			while (fields[field_index].base != NULL && *fields[field_index].base != format[format_index])
+			while (fields[field_index].base != NULL &&
+				*fields[field_index].base != format[format_index])
 				field_index++;
 			if (fields[field_index].field == NULL)
 			{

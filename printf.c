@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -11,11 +9,10 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int format_index = 0, buffer_index = -1, temp_buffer_index = 0;
 	print_func_ptr print_function;
+	int format_index = 0, buffer_index = -1, temp_buffer_index = 0, scale = 1024;
 	char *buffer;
 	char temp_buffer[1024];
-	int scale = 1024;
 
 	buffer = malloc(sizeof(char) * scale);
 	if (!buffer)
@@ -25,20 +22,16 @@ int _printf(const char *format, ...)
 		buffer_index = 0;
 	while (format != NULL && format[format_index] != '\0')
 	{
-		temp_buffer_index = 0;
 		if (format[format_index] == '%')
 		{
 			print_function = get_type(format, format_index, &buffer_index);
 			if (print_function == NULL)
 				return (-1);
 			temp_buffer_index += print_function(args, &temp_buffer[temp_buffer_index]);
-			if (temp_buffer_index + buffer_index >= scale)
-			{
-				scale += scale;
-				buffer = realloc(buffer, scale);
-			}
+			buffer = dyn_realloc(&scale, buffer, &buffer_index, &temp_buffer_index);
 			strcpy(&buffer[buffer_index], temp_buffer);
 			buffer_index += temp_buffer_index;
+			temp_buffer_index = 0;
 			format_index++;
 		}
 		else

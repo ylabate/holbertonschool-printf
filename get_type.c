@@ -10,6 +10,7 @@ print_func_ptr get_type(const char *format, int format_index, int *printed)
 	{"d", print_integer},
 	{"b", print_binary},
 	{"u", print_unsigned},
+	{"o", print_octal},
 	{NULL, NULL}
 	};
 	int field_index = 0;

@@ -11,16 +11,9 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int format_index = 0, field_index, char_printed = -1;
-	field_t fields[] = {
-	{"s", print_string},
-	{"c", print_char},
-	{"%", print_percent},
-	{"i", print_integer},
-	{"d", print_integer},
-	{"b", print_binary},
-	{NULL, NULL}
-	};
+	int format_index = 0, char_printed = -1;
+	print_func_ptr print_function;
+
 
 	va_start(args, format);
 	if (format != NULL)
@@ -29,21 +22,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[format_index] == '%')
 		{
+			print_function = get_type(format, format_index, &char_printed);
+			if (print_function == NULL)
+				return (-1);
+			print_function(args);
 			format_index++;
-			field_index = 0;
-			while (fields[field_index].base != NULL &&
-				*fields[field_index].base != format[format_index])
-				field_index++;
-			if (fields[field_index].field == NULL)
-			{
-				if (format[format_index] == '\0')
-					return (-1);
-				write(1, &format[format_index - 1], 2);
-				char_printed += 2;
-				format_index++;
-				continue;
-			}
-			char_printed += fields[field_index].field(args);
 		}
 		else
 		{

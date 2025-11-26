@@ -1,9 +1,15 @@
 #include "main.h"
 
+/**
+ * print_integer - print a integer
+ * @list: a va_list with the caractère need to be printed
+ *
+ * Return: the number of char printed
+*/
 int print_integer(va_list list)
 {
 	int integer = va_arg(list, int);
-	long signed int integer_long;
+	signed long int integer_long;
 	int end = 0, rev_end, len = 0;
 	int buffer_index = 0;
 	char buffer[12];

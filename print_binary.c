@@ -1,36 +1,44 @@
 #include "main.h"
 
+/**
+ * print_binary - Prints the binary representation of an integer.
+ * @list: va_list containing the integer to print.
+ *
+ * Return: Number of characters printed.
+ */
 int print_binary(va_list list)
 {
-	int integer = va_arg(list, int);
-	long signed int integer_pos;
-	int end = 0, rev_end, len = 0;
+
+	signed long int integer_long = va_arg(list, int);
+	int end = 0;
+	int len = 0;
 	int buffer_index = 0;
+	int negative = 0;
 	char buffer[32];
 
-	integer_pos = integer;
-	if (integer == 0)
+	if (integer_long == 0)
 	{
 		buffer[0] = '0';
 		end++;
 	}
-	if (integer < 0)
+	if (integer_long < 0)
 	{
-		write(1, "-", 1);
-		len++;
-		integer_pos = -integer_pos;
+		integer_long = -integer_long;
+		negative = 1;
 	}
-	while (integer_pos > 0)
+	while (integer_long > 0)
 	{
-		buffer[buffer_index++] = ((integer_pos % 2) + '0');
-		integer_pos = (integer_pos / 2);
+		buffer[buffer_index++] = ((integer_long % 2) + '0');
+		integer_long = (integer_long / 2);
 		end++;
 	}
-	rev_end = end - 1;
-	while (rev_end >= 0)
+	if (negative == 1)
 	{
-		write(1, &buffer[rev_end], 1);
-		rev_end--;
+		end += binary_negative(buffer, buffer_index);
+	}
+	while (--end >= 0)
+	{
+		write(1, &buffer[end], 1);
 		len++;
 	}
 	return (len);

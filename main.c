@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 #include "main.h"
 
@@ -9,36 +10,27 @@
  */
 int main(void)
 {
-	int len1, len2;
+	int len2;
+	char *s;
 
-	/* Test with integers */
-	len1 = _printf("Integer: %d\n", 42);
-	len2 = printf("Integer: %d\n", 42);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
+	/* Allocate memory for s and fill it with 1019 'A' characters and a null terminator */
+	s = malloc(1020 * sizeof(char));
+	if (s == NULL)
+	{
+		printf("Memory allocation failed\n");
+		return (1);
+	}
+	for (int i = 0; i < 1019; i++)
+		s[i] = 'A';
+	s[1019] = '\0';
 
-	/* Test with negative integers */
-	len1 = _printf("Negative integer: %d\n", -42);
-	len2 = printf("Negative integer: %d\n", -42);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
+	/* Test with the given case */
 
-	/* Test with INT_MIN and INT_MAX */
-	len1 = _printf("INT_MIN: %d\n", INT_MIN);
-	len2 = printf("INT_MIN: %d\n", INT_MIN);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
+	len2 = _printf("%s%b\n", s, INT_MAX); /* Assuming printf supports %b for binary */
+;
 
-	len1 = _printf("INT_MAX: %d\n", INT_MAX);
-	len2 = printf("INT_MAX: %d\n", INT_MAX);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
-
-	/* Test with zero */
-	len1 = _printf("Zero: %d\n", 0);
-	len2 = printf("Zero: %d\n", 0);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
-
-	/* Test with multiple arguments */
-	len1 = _printf("Multiple: %d, %d, %d\n", 1, 2, 3);
-	len2 = printf("Multiple: %d, %d, %d\n", 1, 2, 3);
-	printf("_printf length: %d, printf length: %d\n", len1, len2);
+	/* Free the allocated memory */
+	free(s);
 
 	return (0);
 }

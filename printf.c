@@ -11,32 +11,45 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int format_index = 0, char_printed = -1;
+	int format_index = 0, buffer_index = -1, temp_buffer_index = 0;
 	print_func_ptr print_function;
-	char buffer[1024];
+	char *buffer;
+	char temp_buffer[1024];
+	int scale = 1024;
 
-
+	buffer = malloc(sizeof(char) * scale);
+	if (!buffer)
+		return (-1);
 	va_start(args, format);
 	if (format != NULL)
-		char_printed = 0;
+		buffer_index = 0;
 	while (format != NULL && format[format_index] != '\0')
 	{
+		temp_buffer_index = 0;
 		if (format[format_index] == '%')
 		{
-			print_function = get_type(format, format_index, &char_printed);
+			print_function = get_type(format, format_index, &buffer_index);
 			if (print_function == NULL)
 				return (-1);
-			char_printed += print_function(args, &buffer[char_printed]);
+			temp_buffer_index += print_function(args, &temp_buffer[temp_buffer_index]);
+			if (temp_buffer_index + buffer_index >= scale)
+			{
+				scale += scale;
+				buffer = realloc(buffer, scale);
+			}
+			strcpy(&buffer[buffer_index], temp_buffer);
+			buffer_index += temp_buffer_index;
 			format_index++;
 		}
 		else
 		{
-			buffer[char_printed] = format[format_index];
-			char_printed++;
+			buffer[buffer_index] = format[format_index];
+			buffer_index++;
 		}
 		format_index++;
 	}
-	write(1, buffer, char_printed);
+	write(1, buffer, buffer_index);
 	va_end(args);
-	return (char_printed);
+	free(buffer);
+	return (buffer_index);
 }

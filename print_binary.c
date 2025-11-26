@@ -6,14 +6,13 @@
  *
  * Return: Number of characters printed.
  */
-int print_binary(va_list list)
+int print_binary(va_list list, char *buffer)
 {
 
 	unsigned int integer = va_arg(list, int);
 	int end = 0;
 	int len = 0;
 	int buffer_index = 0;
-	char buffer[32];
 
 	if (integer == 0)
 	{

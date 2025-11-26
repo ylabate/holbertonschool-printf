@@ -6,7 +6,7 @@
  *
  * Return: the number of char printed
  */
-int print_string(va_list list)
+int print_string(va_list list, char *buffer)
 {
 	char *string = va_arg(list, char *);
 	int len;
@@ -15,7 +15,7 @@ int print_string(va_list list)
 	if (string == NULL)
 		string = *nullcase;
 	len = strlen(string);
-	write(1, string, len);
+	strcpy(buffer, string);
 
 	return (len);
 }

@@ -15,27 +15,23 @@
 typedef struct field_converter
 {
 	char *base;
-	int (*function)(va_list);
+	int (*function)(va_list, char *);
 } field_t;
 
 /* main function */
 int _printf(const char *format, ...);
 /* get the format need to be printed */
-typedef int (*print_func_ptr)(va_list list);
+typedef int (*print_func_ptr)(va_list list, char *buffer);
 print_func_ptr get_type(const char *format, int format_index, int *char_print);
-/* print normal char */
-void print(const char buf);
 /* different case */
-int print_string(va_list list);
-int print_char(va_list list);
-int print_percent(va_list list);
-int print_integer(va_list list);
-int print_binary(va_list list);
-int print_unsigned(va_list list);
-int print_octal(va_list list);
-int print_hexadecimal_lower(va_list list);
-int print_hexadecimal_upper(va_list list);
-
-int binary_negative(char *buffer, int buffer_index);
+int print_string(va_list list, char *buffer);
+int print_char(va_list list, char *buffer);
+int print_percent(va_list list, char *buffer);
+int print_integer(va_list list, char *buffer);
+int print_binary(va_list list, char *buffer);
+int print_unsigned(va_list list, char *buffer);
+int print_octal(va_list list, char *buffer);
+int print_hexadecimal_lower(va_list list, char *buffer);
+int print_hexadecimal_upper(va_list list, char *buffer);
 
 #endif

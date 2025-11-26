@@ -6,10 +6,10 @@
  *
  * Return: the number of char printed
  */
-int print_char(va_list list)
+int print_char(va_list list, char *buffer)
 {
 	char c = va_arg(list, int);
 
-	write(1, &c, 1);
+	*buffer = c;
 	return (1);
 }

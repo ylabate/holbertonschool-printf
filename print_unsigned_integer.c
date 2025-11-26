@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_integer - print a integer
+ * print_unsigned - print a unsigned integer
  * @list: a va_list with the caractère need to be printed
  *
  * Return: the number of char printed

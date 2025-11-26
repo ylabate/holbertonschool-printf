@@ -22,7 +22,7 @@ typedef struct field_converter
 int _printf(const char *format, ...);
 /* get the format need to be printed */
 typedef int (*print_func_ptr)(va_list list);
-print_func_ptr get_type(const char *format, int format_index, int *char_printed);
+print_func_ptr get_type(const char *format, int format_index, int *char_print);
 /* print normal char */
 void print(const char buf);
 /* different case */
@@ -32,6 +32,7 @@ int print_percent(va_list list);
 int print_integer(va_list list);
 int print_binary(va_list list);
 int print_unsigned(va_list list);
+int print_octal(va_list list);
 
 int binary_negative(char *buffer, int buffer_index);
 

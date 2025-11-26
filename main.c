@@ -11,9 +11,9 @@ int main(void)
 {
 	int count_printf, count__printf;
 
-	count_printf = printf("%b", -156);
+	count_printf = printf("%X", -156);
 	printf("\n");
-	count__printf = _printf("%b", -156);
+	count__printf = _printf("%X", -156);
 	printf("\n");
 	if (count_printf != count__printf)
 		printf("Test %%b failed: printf=%d, _printf=%d\n", count_printf, count__printf);

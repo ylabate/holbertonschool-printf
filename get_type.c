@@ -11,6 +11,8 @@ print_func_ptr get_type(const char *format, int format_index, int *printed)
 	{"b", print_binary},
 	{"u", print_unsigned},
 	{"o", print_octal},
+	{"x", print_hexadecimal_lower},
+	{"X", print_hexadecimal_upper},
 	{NULL, NULL}
 	};
 	int field_index = 0;

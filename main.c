@@ -113,6 +113,25 @@ int main(void)
 	printf("_printf count: %d\n", count__printf);
 	printf("\n");
 
+    /* test %u unsigned */
+    printf("Test %%u avec unsigned positif:\n");
+    count_printf = printf("printf:  %u\n", (unsigned int)num);
+    count__printf = _printf("_printf: %u\n", (unsigned int)num);
+    if (count_printf == count__printf)
+        printf("Counts match: %d\n", count_printf);
+    else
+        printf("Counts differ: printf=%d, _printf=%d\n", count_printf, count__printf);
+    printf("\n");
+
+    printf("Test %%u avec unsigned grand (UINT_MAX):\n");
+    count_printf = printf("printf:  %u\n", UINT_MAX);
+    count__printf = _printf("_printf: %u\n", UINT_MAX);
+    if (count_printf == count__printf)
+        printf("Counts match: %d\n", count_printf);
+    else
+        printf("Counts differ: printf=%d, _printf=%d\n", count_printf, count__printf);
+    printf("\n");
+	
 	printf("=== Fin des tests ===\n");
 	return (0);
 }

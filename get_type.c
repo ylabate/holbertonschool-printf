@@ -1,6 +1,6 @@
 #include "main.h"
 
-print_func_ptr get_type(const char *format, int format_index, int *char_printed)
+print_func_ptr get_type(const char *format, int format_index, int *printed)
 {
 	field_t fields[] = {
 	{"s", print_string},
@@ -9,6 +9,7 @@ print_func_ptr get_type(const char *format, int format_index, int *char_printed)
 	{"i", print_integer},
 	{"d", print_integer},
 	{"b", print_binary},
+	{"u", print_unsigned},
 	{NULL, NULL}
 	};
 	int field_index = 0;
@@ -23,7 +24,7 @@ print_func_ptr get_type(const char *format, int format_index, int *char_printed)
 		if (format[format_index] == '\0')
 			return (NULL);
 		write(1, &format[format_index - 1], 2);
-		*char_printed += 2;
+		*printed += 2;
 	}
 	return (fields[field_index].function);
 }

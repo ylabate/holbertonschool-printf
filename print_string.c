@@ -3,6 +3,8 @@
 /**
  * print_string - Prints a string from a va_list argument.
  * @list: va_list containing the string to print.
+ *
+ * Return: the number of char printed
  */
 int print_string(va_list list)
 {

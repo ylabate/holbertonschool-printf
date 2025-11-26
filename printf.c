@@ -29,7 +29,9 @@ int _printf(const char *format, ...)
 				return (-1);
 			temp_buffer_index += print_function(args, &temp_buffer[temp_buffer_index]);
 			buffer = dyn_realloc(&scale, buffer, &buffer_index, &temp_buffer_index);
-			strcpy(&buffer[buffer_index], temp_buffer);
+			if (buffer == NULL)
+				return (-1);
+			memcpy(&buffer[buffer_index], temp_buffer, temp_buffer_index);
 			buffer_index += temp_buffer_index;
 			temp_buffer_index = 0;
 			format_index++;

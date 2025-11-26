@@ -13,8 +13,10 @@ char *dyn_realloc(int *scale, char *buffer, int *buffer_index, int *temp_buf)
 {
 	if (*temp_buf + *buffer_index >= *scale)
 	{
-		*scale += *scale;
+		*scale = *scale * 2;
 		buffer = realloc(buffer, *scale);
+		if (buffer == NULL)
+			return (NULL);
 	}
 	return (buffer);
 }

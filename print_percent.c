@@ -6,12 +6,11 @@
  *
  * Return: the number of char printed
  */
-int print_percent(va_list list)
+int print_percent(va_list list, char *buffer)
 {
-	char c = '%';
-
 	(void)list;
-	write(1, &c, 1);
+	(void)buffer;
 
+	buffer = "%";
 	return (1);
 }

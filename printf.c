@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int format_index = 0, char_printed = -1;
 	print_func_ptr print_function;
+	char buffer[1024];
 
 
 	va_start(args, format);
@@ -25,17 +26,17 @@ int _printf(const char *format, ...)
 			print_function = get_type(format, format_index, &char_printed);
 			if (print_function == NULL)
 				return (-1);
-			char_printed += print_function(args);
+			char_printed += print_function(args, &buffer[char_printed]);
 			format_index++;
 		}
 		else
 		{
-			print(format[format_index]);
+			buffer[char_printed] = format[format_index];
 			char_printed++;
 		}
 		format_index++;
 	}
-
+	write(1, buffer, char_printed);
 	va_end(args);
 	return (char_printed);
 }

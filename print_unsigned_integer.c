@@ -6,13 +6,13 @@
  *
  * Return: the number of char printed
 */
-int print_integer(va_list list)
+int print_unsigned(va_list list)
 {
-	int integer = va_arg(list, int);
-	signed long int integer_long;
+	unsigned int integer = va_arg(list, int);
+	unsigned long int integer_long;
 	int end = 0, rev_end, len = 0;
 	int buffer_index = 0;
-	char buffer[12];
+	char buffer[11];
 
 	integer_long = integer;
 	if (integer == 0)
@@ -20,13 +20,7 @@ int print_integer(va_list list)
 		buffer[0] = '0';
 		end++;
 	}
-	if (integer < 0)
-	{
-		write(1, "-", 1);
-		len++;
-		integer_long = -integer_long;
-	}
-	while (integer_long > 0 && buffer_index < 12)
+	while (integer_long > 0 && buffer_index < 11)
 	{
 		buffer[buffer_index++] = ((integer_long % 10) + '0');
 		integer_long = (integer_long / 10);

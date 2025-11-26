@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			print_function = get_type(format, format_index, &char_printed);
 			if (print_function == NULL)
 				return (-1);
-			print_function(args);
+			char_printed += print_function(args);
 			format_index++;
 		}
 		else

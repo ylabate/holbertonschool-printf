@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct field_converter - Struct that holds a base character and a
@@ -39,5 +40,8 @@ int print_unsigned(va_list list, char *buffer);
 int print_octal(va_list list, char *buffer);
 int print_hexadecimal_lower(va_list list, char *buffer);
 int print_hexadecimal_upper(va_list list, char *buffer);
+int print_adresse(va_list list, char *buffer);
+
+int print_null(char *buffer, const char *format);
 
 #endif

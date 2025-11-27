@@ -13,6 +13,7 @@ print_func_ptr get_type(const char *format, int format_index, int *printed)
 	{"o", print_octal},
 	{"x", print_hexadecimal_lower},
 	{"X", print_hexadecimal_upper},
+	{"p", print_adresse},
 	{NULL, NULL}
 	};
 	int field_index = 0;
@@ -22,12 +23,13 @@ print_func_ptr get_type(const char *format, int format_index, int *printed)
 	while (fields[field_index].base != NULL &&
 		*fields[field_index].base != format[format_index])
 		field_index++;
+	/* in a null case */
 	if (fields[field_index].function == NULL)
 	{
+		/* if there is nothing after the % */
 		if (format[format_index] == '\0')
 			return (NULL);
-		write(1, &format[format_index - 1], 2);
-		*printed += 2;
 	}
+	(void)printed;
 	return (fields[field_index].function);
 }

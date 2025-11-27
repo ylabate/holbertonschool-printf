@@ -24,17 +24,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[format_index] == '%')
 		{
-			print_function = get_type(format, format_index, &buffer_index);
+			print_function = get_type(format, format_index++, &buffer_index);
 			if (print_function == NULL)
-				return (-1);
-			temp_buffer_index += print_function(args, &temp_buffer[temp_buffer_index]);
+				temp_buffer_index = print_null(&temp_buffer[temp_buffer_index],
+					&format[format_index - 1]);
+			else
+				temp_buffer_index = print_function(args, &temp_buffer[temp_buffer_index]);
 			buffer = dyn_realloc(&scale, buffer, &buffer_index, &temp_buffer_index);
 			if (buffer == NULL)
 				return (-1);
 			memcpy(&buffer[buffer_index], temp_buffer, temp_buffer_index);
 			buffer_index += temp_buffer_index;
 			temp_buffer_index = 0;
-			format_index++;
 		}
 		else
 		{

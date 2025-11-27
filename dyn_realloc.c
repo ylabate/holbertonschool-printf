@@ -11,7 +11,7 @@
  */
 char *dyn_realloc(int *scale, char *buffer, int *buffer_index, int *temp_buf)
 {
-	if (*temp_buf + *buffer_index >= *scale)
+	if (*temp_buf + *buffer_index >= *scale / 0.9)
 	{
 		*scale = *scale * 2;
 		buffer = realloc(buffer, *scale);

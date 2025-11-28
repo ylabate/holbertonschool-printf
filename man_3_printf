@@ -1,0 +1,87 @@
+.TH _PRINTF 3 "November 28, 2025" "_PRINTF version 1.0" "User Commands"
+
+.Os "Linux"
+
+.SH NAME
+\fB_printf\fP \- Print output based on the format string and following arguments
+
+.SH SYNOPSIS
+\fBint _printf(\fR\fBconst char *\fR\fIformat\fR\fB, ...);\fR
+
+.SH DESCRIPTION
+The function
+.B _printf
+writes output to \fIstdout\fR according to the \fIformat\fR string and includes
+the following arguments in the output.
+
+.SS Conversion specifiers
+A \fBconversion specifier\fR is a character that dictates the type of variable
+to be retrieved from the following arguments and how it should be converted for output.
+
+.TP
+.B c
+The \fBc\fR specifier is used to print a \fBchar\fR variable.
+
+.TP
+.B s
+The \fBs\fR specifier is used to print a \fBstring\fR variable.
+
+.TP
+.B i, d
+The \fBi\fR and \fBd\fR specifiers are used to print a \fBsigned integer\fR variable (decimal notation).
+
+.TP
+.B u
+The \fBu\fR specifier is used to print an \fBunsigned integer\fR variable.
+
+.TP
+.B b
+The \fBb\fR specifier is used to print an integer variable converted to \fBbinary\fR format.
+
+.TP
+.B o
+The \fBo\fR specifier is used to print an integer variable converted to \fBoctal\fR format.
+
+.TP
+.B x, X
+The \fBx\fR and \fBX\fR specifiers are used to print an integer variable converted to
+\fBhexadecimal\fR format. \fBx\fR for lowercase and \fBX\fR for uppercase letters.
+
+.TP
+.B p
+The \fBp\fR specifier is used to print the \fBmemory address\fR of the variable in
+hexadecimal format (pointer).
+
+.TP
+.B %
+The \fB%%\fR specifier prints a \fBliteral percentage sign\fR (\fB%\fR).
+
+.SH EXAMPLES
+For printing an unsigned integer:
+.PP
+.nf
+.B _printf("%u", unsigned_integer_var);
+.fi
+
+.P
+For printing a string:
+.PP
+.nf
+.B _printf("%s", string_var);
+.fi
+
+.P
+For printing the address of a variable:
+.PP
+.nf
+.B _printf("%p", any_var);
+.fi
+
+.SH RETURN VALUE
+.TP
+The function returns the \fBnumber of characters printed\fR or \fB\-1\fR if an error occurred.
+
+.SH SEE ALSO
+.BR printf (3),
+.BR puts (3)
+	

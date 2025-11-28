@@ -34,11 +34,11 @@ flowchart TB
     & update indexes")
     K --> C
     
-    %% Styles restaurés
-    style A stroke-width:7px;
-    style 9 stroke-width:7px;
-    style C stroke-width:4px;
-    style D stroke-width:4px;
-    style Bbis stroke-width:4px;
+    %% Styles pour simuler Neo-Dark avec bordures en cyan et épaisseur:
+    style A fill:#2b3e50, stroke:#00bfff, stroke-width:7px, color:#ffffff;
+    style 9 fill:#2b3e50, stroke:#00bfff, stroke-width:7px, color:#ffffff;
+    style C stroke:#00bfff, stroke-width:4px;
+    style D stroke:#00bfff, stroke-width:4px;
+    style Bbis stroke:#00bfff, stroke-width:4px;
 ```
 

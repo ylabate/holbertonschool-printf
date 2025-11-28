@@ -2,13 +2,13 @@
 
 ## Overview
 
-**holbertonschool-printf** is a project developed to deepen the understanding of key concepts in the C programming language.
+**holbertonschool-printf** is a project developed to deepen the understanding of key concepts in the **C** programming language.
 
-the core function is [_printf.c](printf.c), which is a custom implementation of printf,
+the core function is [**_printf.c**](printf.c), which is a custom implementation of **printf**,
 
-All of the project's source code was developed and compiled using the strict gcc arguments:  
+All of the project's source code was developed and compiled using the strict **gcc** arguments:  
 `-Wall -Werror -Wextra -pedantic -std=gnu89`  
-This ensures high code quality and maximum portability.
+This ensures **high code quality** and **maximum portability**.
 
 ## Usage
 
@@ -32,7 +32,7 @@ for adding variable integration you have to use **%** followed by a character
 
 ## How it work
 
-the **_printf** function is mainly based on the variadic function to get the variable, and on the function pointer with a dedicated function [**get_type();**](get_type.c) to print the variables in the good format
+the **_printf** function is mainly based on the **variadic function** to get the variable, and on the **function pointer** with a dedicated function [**get_type();**](get_type.c) to print the variables in the good format
 
 ```mermaid
 flowchart TB
@@ -84,7 +84,7 @@ flowchart TB
 
 ```
 
-[here for a better flowchart](ressource/flowchart.png)
+![here for another flowchart](ressource/flowchart.png)
 
 ## Exemple
 
@@ -120,6 +120,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
 ## Contributor
 
-this project was developped by only myself in 5 days for the Holberton School of rodez
+this project was developped by only myself in **5** days for the **Holberton School** of **rodez**
 
 * [**ylabate**](https://github.com/ylabate)

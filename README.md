@@ -36,20 +36,10 @@ the **_printf** function is mainly based on the variadic function to get the var
 
 ```mermaid
 flowchart TB
-    %% --- Définition des Styles (Compatible GitHub) ---
-    %% Style pour les boîtes standards (Processus) - Bordure Cyan/Bleu
     classDef process fill:#0f111a,stroke:#00b4d8,stroke-width:2px,color:#fff
-    
-    %% Style pour les décisions (Losanges) - Bordure Violet/Rose (Épaissie à 5px)
     classDef decision fill:#0f111a,stroke:#f72585,stroke-width:5px,color:#fff
-    
-    %% Style pour Start/Stop (Terminaisons) - Rouge Néon très visible & Bordure 6px
     classDef terminal fill:#0f111a,stroke:#ff0040,stroke-width:6px,color:#fff
-    
-    %% Style pour les Inputs (Parallélogramme)
     classDef input fill:#0f111a,stroke:#4cc9f0,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
-
-    %% --- Le Diagramme ---
 
     subgraph B["Initialization"]
         direction TB
@@ -57,7 +47,7 @@ flowchart TB
         2("Allocate memory buffers<br/>(buffer & temp_buffer)"):::process
         4("Initialize counters to 0"):::process
     end
-    %% Style du subgraph Initialization (Violet Électrique récupéré)
+
     style B fill:#0f111a,stroke:#8338ec,stroke-width:3px,color:#fff
 
     subgraph END["end"]
@@ -67,7 +57,7 @@ flowchart TB
         8("free buffer"):::process
         9(["return buffer_index<br/>STOP"]):::terminal
     end
-    %% Style du subgraph END (Violet Électrique récupéré)
+
     style END fill:#0f111a,stroke:#8338ec,stroke-width:3px,color:#fff
 
     A(["START<br/>Call _printf"]):::terminal --> B
@@ -90,10 +80,11 @@ flowchart TB
     I --> K("Copy temp_buffer to main buffer<br/>& update indexes"):::process
     K --> C
 
-    %% --- Styles des liens (Lignes blanches) ---
     linkStyle default stroke:#fff,stroke-width:1px
 
 ```
+
+[here for a better flowchart](ressource/flowchart.svg)
 
 ## Exemple
 

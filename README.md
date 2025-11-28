@@ -40,7 +40,7 @@ the **_printf** function is mainly based on the variadic function to get the var
 > ---
 > config:
 >   layout: elk
->   theme: neo-dark
+>   theme: dark
 > ---
 > flowchart TB
 >  subgraph B["Initialization"]

@@ -33,5 +33,12 @@ flowchart TB
     I --> K("Copy temp_buffer to main buffer
     & update indexes")
     K --> C
+    
+    %% Styles restaurés
+    style A stroke-width:7px;
+    style 9 stroke-width:7px;
+    style C stroke-width:4px;
+    style D stroke-width:4px;
+    style Bbis stroke-width:4px;
 ```
 

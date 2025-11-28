@@ -28,20 +28,21 @@ char *dyn_realloc(int *scale, char *buffer, int *buffer_index, int *temp_buf);
 
 /* get the format need to be printed */
 typedef int (*print_func_ptr)(va_list list, char *buffer);
-print_func_ptr get_type(const char *format, int format_index, int *char_print);
+print_func_ptr get_type(const char *format, int format_index);
 
-/* different case */
+/* the classic print function */
 int print_string(va_list list, char *buffer);
 int print_char(va_list list, char *buffer);
 int print_percent(va_list list, char *buffer);
 int print_integer(va_list list, char *buffer);
 int print_binary(va_list list, char *buffer);
-int print_unsigned(va_list list, char *buffer);
+int print_unsigned_integer(va_list list, char *buffer);
 int print_octal(va_list list, char *buffer);
 int print_hexadecimal_lower(va_list list, char *buffer);
 int print_hexadecimal_upper(va_list list, char *buffer);
 int print_adresse(va_list list, char *buffer);
 
+/* it handle the print if the character following the % if don't if the list */
 int print_null(char *buffer, const char *format);
 
 #endif

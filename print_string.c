@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * print_string - Prints a string from a va_list argument.
+ * print_string - Write a string in a buffer
  * @list: va_list containing the string to print.
+ * @buffer: buffer where the string will be copied.
  *
  * Return: the number of char printed
  */

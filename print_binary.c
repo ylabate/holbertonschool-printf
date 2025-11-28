@@ -11,27 +11,26 @@ int print_binary(va_list list, char *buffer)
 {
 
 	unsigned int integer = va_arg(list, int);
-	int end = 0;
-	int len = 0;
-	int local_buffer_index = 0, buffer_index = 0;
+	int local_buffer_index = 0, buffer_index = 0, end = 0;
 	char local_buffer[32];
-
+	/* handle the specific case when the int is 0 */
 	if (integer == 0)
 	{
 		local_buffer[0] = '0';
 		end++;
 	}
+	/* write the int in a local buffer in reversed */
 	while (integer > 0)
 	{
 		local_buffer[local_buffer_index++] = ((integer % 2) + '0');
 		integer = (integer / 2);
 		end++;
 	}
+	/* write the local buffer reversed in the global buffer */
 	while (--end >= 0)
 	{
 		buffer[buffer_index] = local_buffer[end];
 		buffer_index++;
-		len++;
 	}
-	return (len);
+	return (buffer_index);
 }

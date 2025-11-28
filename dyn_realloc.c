@@ -11,11 +11,12 @@
  */
 char *dyn_realloc(int *scale, char *buffer, int *buffer_index, int *temp_buf)
 {
+	/* if the buffer if full or close to full */
 	if (*temp_buf + *buffer_index >= *scale / 0.9)
 	{
-		*scale = *scale * 2;
-		buffer = realloc(buffer, *scale);
-		if (buffer == NULL)
+		*scale = *scale * 2; /* double the scale */
+		buffer = realloc(buffer, *scale); /* apply the scale to the buffer */
+		if (buffer == NULL) /* if realloc fail */
 			return (NULL);
 	}
 	return (buffer);

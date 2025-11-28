@@ -10,9 +10,7 @@ int print_octal(va_list list, char *buffer)
 {
 
 	unsigned int integer = va_arg(list, int);
-	int end = 0;
-	int len = 0;
-	int local_buffer_index = 0, buffer_index = 0;
+	int local_buffer_index = 0, buffer_index = 0, end = 0;
 	char local_buffer[12];
 
 	if (integer == 0)
@@ -30,7 +28,6 @@ int print_octal(va_list list, char *buffer)
 	{
 		buffer[buffer_index] = local_buffer[end];
 		buffer_index++;
-		len++;
 	}
-	return (len);
+	return (buffer_index);
 }

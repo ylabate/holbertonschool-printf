@@ -84,7 +84,7 @@ flowchart TB
 
 ```
 
-[here for a better flowchart](ressource/flowchart.svg)
+[here for a better flowchart](ressource/flowchart.png)
 
 ## Exemple
 

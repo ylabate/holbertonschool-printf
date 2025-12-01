@@ -35,7 +35,7 @@ for adding variable integration you have to use **%** followed by a character
 the **_printf** function is mainly based on the **variadic function** to get the variable, and on the **function pointer** with a dedicated function [**get_type();**](get_type.c) to print the variables in the good format
 
 
-![flowchart](ressource/flowchart.png)
+![flowchart](resource/flowchart.png)
 
 ## Exemple
 
@@ -57,7 +57,7 @@ cd holbertonschool-printf
 ### make your main file
 
 ```bash
-echo '#include "main.h"\n\nint main(void)\n{\n\t/* your code go here */\n\t_printf("test\\n");\nreturn (0);\n}' > main.c
+echo -e '#include "main.h"\n\nint main(void)\n{\n\t/* your code go here */\n\t_printf("test\\n");\nreturn (0);\n}' > main.c
 ```
 
 ### Compile and Run
